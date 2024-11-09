@@ -5,7 +5,7 @@ import employerImg from "../../../public/employer-icon.png";
 import backArrowImg from "../../../public/back-arrow.png";
 import Link from "next/link";
 
-const page = () => {
+const Page = () => {
   return (
     <div className="join-our-community register mx-auto">
       <div className="join-our-community-header d-flex align-items-center justify-content-center mb-2">
@@ -64,4 +64,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

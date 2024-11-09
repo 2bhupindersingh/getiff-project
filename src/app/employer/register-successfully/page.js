@@ -5,7 +5,7 @@ import copyImg from "../../../../public/copy-icon.png";
 import { Button } from "react-bootstrap";
 import Link from "next/link";
 
-const page = () => {
+const Page = () => {
   return (
     <div className="join-our-community register register-successfully mx-auto">
       <h2 className="pt-4">Registration Successful!</h2>
@@ -21,10 +21,10 @@ const page = () => {
         </div>
         <h6 className="mb-1 text-center">
           Welcome to Getiff,
-          <br /> [Employer's Name]!
+          <br /> [Employer&rsquo;s Name]!
         </h6>
         <p className="text-center">
-          You’re all set to start verifying employee histories, exploring
+          You&rsquo;re all set to start verifying employee histories, exploring
           company reviews, and managing disputes with ease. Begin by searching
           for employees or updating your company profile to get the most out of
           our platform.
@@ -51,4 +51,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -13,7 +13,7 @@ import { RiEyeOffLine } from "react-icons/ri";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const page = () => {
+const Page = () => {
   const [step, setStep] = useState(1);
   const totalSteps = 3;
 
@@ -175,4 +175,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

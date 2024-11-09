@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const page = () => {
+const Page = () => {
   return (
     <div className="home-page-container mx-auto">
       <p className="mb-2">
@@ -23,7 +23,7 @@ const page = () => {
           creating your account.
         </li>
         <li>
-          Security: You’re responsible for keeping your login information
+          Security: You&apos;re responsible for keeping your login information
           secure. Report any unauthorized use of your account immediately.
         </li>
       </ul>
@@ -78,7 +78,7 @@ const page = () => {
       <h6>Disclaimers and Limitation of Liability</h6>
       <ul>
         <li>
-          Getiff provides the Platform "as is" without warranties of any kind.
+          Getiff provides the Platform &quot;as is&quot; without warranties of any kind.
           We do not guarantee the accuracy, reliability, or completeness of any
           information on the Platform.
         </li>
@@ -196,7 +196,7 @@ const page = () => {
         responsible for the privacy practices or content of these external
         sites.
       </p>
-      <h6>Children’s Privacy</h6>
+      <h6>Children&apos;s Privacy</h6>
       <p>
         Getiff is not intended for children under the age of 18, and we do not
         knowingly collect information from children.
@@ -215,4 +215,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

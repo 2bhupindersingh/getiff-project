@@ -5,7 +5,7 @@ import twitterImg from "../../../public/prime_twitter.png";
 import Container from "react-bootstrap/Container";
 import Link from "next/link";
 
-const page = () => {
+const Page = () => {
   return (
     <Container>
       <div className="join-our-community mx-auto">
@@ -63,4 +63,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
