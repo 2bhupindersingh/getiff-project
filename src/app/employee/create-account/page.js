@@ -14,9 +14,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const Page = () => {
-  
   const [step, setStep] = useState(1);
   const totalSteps = 7;
+
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [activeTags, setActiveTags] = useState([]);
 
   const nextStep = () => {
     if (step < totalSteps) setStep((prevStep) => prevStep + 1);
@@ -27,6 +29,50 @@ const Page = () => {
   };
 
   const progress = (step / totalSteps) * 100;
+
+  // Tags list
+  const tags = [
+    "Python",
+    "JavaScript",
+    "Java",
+    "Node.js",
+    "HTML/CSS",
+    "React.js",
+    "SQL",
+    "Angular",
+    "Data Science",
+    "Artificial Intelligence (AI)",
+    "DevOps",
+    "Machine Learning",
+    "Blockchain",
+    "Cloud Computing (AWC, Azure, GCP)",
+    "PHP",
+    "Kubernetes",
+    "Docker",
+    "Ruby on Rails",
+    "Zoho",
+    "Cybersecurity",
+    "UI/UX Design",
+    "SAP",
+    "C++",
+    "Swift",
+    "Typescript",
+  ];
+
+  // Set how many tags to show when collapsed
+  const maxVisibleTags = 18;
+
+  const toggleShowMore = () => {
+    setIsExpanded(!isExpanded);
+  };
+  const handleTagClick = (tag) => {
+    setActiveTags(
+      (prevTags) =>
+        prevTags.includes(tag)
+          ? prevTags.filter((t) => t !== tag) // Remove tag if already active
+          : [...prevTags, tag] // Add tag if not active
+    );
+  };
   return (
     <div className="container mt-5">
       {/* Display content based on step */}
@@ -338,7 +384,7 @@ const Page = () => {
           )
           // Fourth step end here
         }
-         {
+        {
           step === 5 && (
             // Fifth step start here
             <div className="join-our-community register create-account mx-auto">
@@ -383,7 +429,6 @@ const Page = () => {
                       className="common-textfield"
                     />
                   </Form.Group>
-                  
 
                   <Form.Group
                     className="mb-3 position-relative"
@@ -415,45 +460,45 @@ const Page = () => {
                   >
                     <Form.Label>Starting Date</Form.Label>
                     <Row>
-                    <Col md={3} className="pe-0 start-date-padding">
-                      {" "}
-                      <Form.Group
-                        className="mb-3 position-relative"
-                        controlId="exampleForm.ControlInput4"
-                      >
-                        <Form.Control
-                          type="text"
-                          placeholder="Day"
-                          className="common-textfield"
-                        />
-                      </Form.Group>
-                    </Col>
-                    <Col md={6}>
-                      {" "}
-                      <Form.Select
-                        className="common-select"
-                        aria-label="Default select example"
-                      >
-                        <option>Month</option>
-                        <option value="1">Jan</option>
-                        <option value="2">Feb</option>
-                        <option value="3">March</option>
-                      </Form.Select>
-                    </Col>
-                    <Col md={3} className="ps-0 end-date-padding">
-                      {" "}
-                      <Form.Group
-                        className="mb-3 position-relative"
-                        controlId="exampleForm.ControlInput4"
-                      >
-                        <Form.Control
-                          type="number"
-                          placeholder="Year"
-                          className="common-textfield"
-                        />
-                      </Form.Group>
-                    </Col>
-                  </Row>
+                      <Col md={3} className="pe-0 start-date-padding">
+                        {" "}
+                        <Form.Group
+                          className="mb-3 position-relative"
+                          controlId="exampleForm.ControlInput4"
+                        >
+                          <Form.Control
+                            type="text"
+                            placeholder="Day"
+                            className="common-textfield"
+                          />
+                        </Form.Group>
+                      </Col>
+                      <Col md={6}>
+                        {" "}
+                        <Form.Select
+                          className="common-select"
+                          aria-label="Default select example"
+                        >
+                          <option>Month</option>
+                          <option value="1">Jan</option>
+                          <option value="2">Feb</option>
+                          <option value="3">March</option>
+                        </Form.Select>
+                      </Col>
+                      <Col md={3} className="ps-0 end-date-padding">
+                        {" "}
+                        <Form.Group
+                          className="mb-3 position-relative"
+                          controlId="exampleForm.ControlInput4"
+                        >
+                          <Form.Control
+                            type="number"
+                            placeholder="Year"
+                            className="common-textfield"
+                          />
+                        </Form.Group>
+                      </Col>
+                    </Row>
                   </Form.Group>
                 </Form>
 
@@ -472,7 +517,7 @@ const Page = () => {
           )
           // Fifth step end here
         }
-         {
+        {
           step === 6 && (
             // Sixth step start here
             <div className="join-our-community register create-account mx-auto">
@@ -493,7 +538,10 @@ const Page = () => {
                 <h1 className="mb-0 me-auto">Company Culture Feedback</h1>
               </div>
               <div className="join-our-community-content">
-                <p>Share an honest review to help build a fully transparent community</p>
+                <p>
+                  Share an honest review to help build a fully transparent
+                  community
+                </p>
                 <Form>
                   <Form.Group
                     className="mb-3 position-relative"
@@ -513,18 +561,24 @@ const Page = () => {
                   >
                     <Form.Label>Feedback on your experience</Form.Label>
                     <div className="tags-container d-flex align-items-center flex-wrap">
-                  <div className="tag me-2 mb-2">Python +</div>
-                  <div className="tag me-2 mb-2">JavaScript +</div>
-                  </div>
-                     <Form.Control as="textarea" placeholder="Write here" className="common-textfield" rows={3} />
+                      <div className="tag me-2 mb-2">Python +</div>
+                      <div className="tag me-2 mb-2">JavaScript +</div>
+                    </div>
+                    <Form.Control
+                      as="textarea"
+                      placeholder="Write here"
+                      className="common-textfield"
+                      rows={3}
+                    />
                   </Form.Group>
-                  
 
                   <Form.Group
                     className="mb-3 position-relative"
                     controlId="exampleForm.ControlInput4"
                   >
-                    <Form.Label>If leaving the company then “Why are you leaving?”</Form.Label>
+                    <Form.Label>
+                      If leaving the company then “Why are you leaving?”
+                    </Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="Write here"
@@ -572,38 +626,26 @@ const Page = () => {
                 <h3 className="text-center mt-5">Your company working on?</h3>
                 <p className="text-center mb-4">Choose three or more.</p>
                 <div className="tags-container d-flex align-items-center justify-content-center flex-wrap">
-                  <div className="tag me-2 mb-2">Python +</div>
-                  <div className="tag me-2 mb-2">JavaScript +</div>
-                  <div className="tag me-2 mb-2">Java +</div>
-                  <div className="tag me-2 mb-2">Node.js +</div>
-                  <div className="tag me-2 mb-2">HTML/CSS +</div>
-                  <div className="tag me-2 mb-2">React.js +</div>
-                  <div className="tag me-2 mb-2">SQL +</div>
-                  <div className="tag me-2 mb-2">Angular +</div>
-                  <div className="tag me-2 mb-2">Data Science +</div>
-                  <div className="tag tag-active me-2 mb-2">
-                    Artificial Intelligence (AI)
-                  </div>
-                  <div className="tag me-2 mb-2">DevOps +</div>
-                  <div className="tag me-2 mb-2">Machine Learning +</div>
-                  <div className="tag me-2 mb-2">Blockchain +</div>
-                  <div className="tag me-2 mb-2">
-                    Cloud Computing (AWC, Azure, GCP) +
-                  </div>
-                  <div className="tag me-2 mb-2">PHP +</div>
-                  <div className="tag me-2 mb-2">Kubernetes +</div>
-                  <div className="tag me-2 mb-2">Docker +</div>
-                  <div className="tag me-2 mb-2">Ruby on Rails +</div>
-                  <div className="tag me-2 mb-2">Zoho +</div>
-                  <div className="tag me-2 mb-2">Cybersecurity +</div>
-                  <div className="tag me-2 mb-2">UI/UX Design +</div>
-                  <div className="tag me-2 mb-2">SAP +</div>
-                  <div className="tag me-2 mb-2">C++ +</div>
-                  <div className="tag me-2 mb-2">Swift +</div>
-                  <div className="tag me-2 mb-2">Typescript +</div>
-                  <Button variant="link" className="show-more">
-                    show more...
-                  </Button>
+                  {tags
+                    .slice(0, isExpanded ? tags.length : maxVisibleTags)
+                    .map((tag, index) => (
+                      <div
+                        key={index}
+                        className={`tag me-2 mb-2 ${
+                          activeTags.includes(tag) ? "tag-active" : ""
+                        }`}
+                        onClick={() => handleTagClick(tag)}
+                      >
+                        {tag} +
+                      </div>
+                    ))}
+                  <button
+                    onClick={toggleShowMore}
+                    type="button"
+                    className="show-more btn btn-link"
+                  >
+                    {isExpanded ? "Show Less" : "Show More"}
+                  </button>
                 </div>
                 <div className="d-grid gap-2 mt-5">
                   <Link
