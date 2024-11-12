@@ -433,6 +433,7 @@ body {
   margin: 50px 20px;
   background: var(--white);
   padding: 20px;
+  height: 90%;
 }
 .onboarding-progress-bar.progress {
   width: 100%;

@@ -12,10 +12,18 @@ import emailImg from "../../../../public/email-icon.png";
 import { RiEyeOffLine } from "react-icons/ri";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { auth } from "../../firebase/config"; // Import `auth` from your Firebase config
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  sendEmailVerification,
+} from "firebase/auth";
 
 const Page = () => {
   const [step, setStep] = useState(1);
   const totalSteps = 5;
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [activeTags, setActiveTags] = useState([]);
 
   const nextStep = () => {
     if (step < totalSteps) setStep((prevStep) => prevStep + 1);
@@ -26,6 +34,104 @@ const Page = () => {
   };
 
   const progress = (step / totalSteps) * 100;
+
+  // Tags list
+  const tags = [
+    "Python",
+    "JavaScript",
+    "Java",
+    "Node.js",
+    "HTML/CSS",
+    "React.js",
+    "SQL",
+    "Angular",
+    "Data Science",
+    "Artificial Intelligence (AI)",
+    "DevOps",
+    "Machine Learning",
+    "Blockchain",
+    "Cloud Computing (AWC, Azure, GCP)",
+    "PHP",
+    "Kubernetes",
+    "Docker",
+    "Ruby on Rails",
+    "Zoho",
+    "Cybersecurity",
+    "UI/UX Design",
+    "SAP",
+    "C++",
+    "Swift",
+    "Typescript",
+  ];
+
+  // Set how many tags to show when collapsed
+  const maxVisibleTags = 18;
+
+  const toggleShowMore = () => {
+    setIsExpanded(!isExpanded);
+  };
+  const handleTagClick = (tag) => {
+    setActiveTags(
+      (prevTags) =>
+        prevTags.includes(tag)
+          ? prevTags.filter((t) => t !== tag) // Remove tag if already active
+          : [...prevTags, tag] // Add tag if not active
+    );
+  };
+
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+    setSuccess(null);
+
+    try {
+      // Create user with email and a placeholder password
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        "defaultPassword"
+      );
+      const user = userCredential.user;
+
+      // Send verification email
+      await sendEmailVerification(user);
+      setSuccess("Verification email sent. Please check your inbox.");
+      alert("Verification email sent. Please check your inbox.");
+      // Proceed to next step
+      nextStep();
+
+      // Listen for verification status (optional)
+      onAuthStateChanged(auth, async (currentUser) => {
+        await currentUser.reload(); // Refresh user to check for verification status
+        if (currentUser.emailVerified) {
+          // Proceed to next step if verified
+          setSuccess("Email verified successfully!");
+          alert("Email verified!");
+          // Redirect or move to the next step here
+        }
+      });
+    } catch (error) {
+      // Handle Firebase errors
+      if (error.code === "Email already in use") {
+        setError("The email address is already in use. Please try another email.");
+      } else if (error.code === "Invalid email") {
+        setError("The email address is invalid. Please check your email format.");
+      } else if (error.code === "Weak password") {
+        setError("The password is too weak. Please choose a stronger password.");
+      } else {
+        setError("An error occurred: " + error.message);
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="container mt-5">
       {/* Display content based on step */}
@@ -48,11 +154,12 @@ const Page = () => {
                   <h1 className="mb-0 me-auto">Create your account</h1>
                 </div>
                 <div className="join-our-community-content">
-                  <p>
-                    Please enter the email address linked with your company
-                    account.
-                  </p>
-                  <Form>
+                  <Form onSubmit={handleSubmit}>
+                    <p>
+                      Please enter the email address linked with your company
+                      account.
+                    </p>
+
                     <Form.Group
                       className="mb-3"
                       controlId="exampleForm.ControlInput1"
@@ -62,44 +169,48 @@ const Page = () => {
                         type="email"
                         placeholder="Your email address"
                         className="common-textfield"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </Form.Group>
+                    {error && <p className="text-danger">{error}</p>}
+                    <p className="text-center">or register with</p>
+                    <div className="d-flex align-items-center justify-content-center gap-3">
+                      <Button variant="outline-dark" className="google-btn">
+                        <Image
+                          src={googleImg}
+                          width={17}
+                          height={17}
+                          alt="google pic"
+                          className="me-2"
+                        />
+                        Google
+                      </Button>
+                      <Button variant="outline-dark" className="google-btn">
+                        <Image
+                          src={appleImg}
+                          width={17}
+                          height={17}
+                          alt="apple pic"
+                          className="me-2"
+                        />
+                        Apple
+                      </Button>
+                    </div>
+                    <div className="d-grid gap-2 hashtag-heading-space">
+                      <Button
+                        variant="primary"
+                        size="lg"
+                        // onClick={nextStep}
+                        // disabled={step === totalSteps}
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="ms-2"
+                      >
+                        Continue
+                      </Button>
+                    </div>
                   </Form>
-
-                  <p className="text-center">or register with</p>
-                  <div className="d-flex align-items-center justify-content-center gap-3">
-                    <Button variant="outline-dark" className="google-btn">
-                      <Image
-                        src={googleImg}
-                        width={17}
-                        height={17}
-                        alt="google pic"
-                        className="me-2"
-                      />
-                      Google
-                    </Button>
-                    <Button variant="outline-dark" className="google-btn">
-                      <Image
-                        src={appleImg}
-                        width={17}
-                        height={17}
-                        alt="apple pic"
-                        className="me-2"
-                      />
-                      Apple
-                    </Button>
-                  </div>
-                  <div className="d-grid gap-2 hashtag-heading-space">
-                    <Button
-                      variant="primary"
-                      size="lg"
-                      onClick={nextStep}
-                      disabled={step === totalSteps}
-                      className="ms-2"
-                    >
-                      Continue
-                    </Button>
-                  </div>
                 </div>
               </div>
             </>
@@ -393,38 +504,26 @@ const Page = () => {
                 <h3 className="text-center mt-5">Your company working on?</h3>
                 <p className="text-center mb-4">Choose three or more.</p>
                 <div className="tags-container d-flex align-items-center justify-content-center flex-wrap">
-                  <div className="tag me-2 mb-2">Python +</div>
-                  <div className="tag me-2 mb-2">JavaScript +</div>
-                  <div className="tag me-2 mb-2">Java +</div>
-                  <div className="tag me-2 mb-2">Node.js +</div>
-                  <div className="tag me-2 mb-2">HTML/CSS +</div>
-                  <div className="tag me-2 mb-2">React.js +</div>
-                  <div className="tag me-2 mb-2">SQL +</div>
-                  <div className="tag me-2 mb-2">Angular +</div>
-                  <div className="tag me-2 mb-2">Data Science +</div>
-                  <div className="tag tag-active me-2 mb-2">
-                    Artificial Intelligence (AI)
-                  </div>
-                  <div className="tag me-2 mb-2">DevOps +</div>
-                  <div className="tag me-2 mb-2">Machine Learning +</div>
-                  <div className="tag me-2 mb-2">Blockchain +</div>
-                  <div className="tag me-2 mb-2">
-                    Cloud Computing (AWC, Azure, GCP) +
-                  </div>
-                  <div className="tag me-2 mb-2">PHP +</div>
-                  <div className="tag me-2 mb-2">Kubernetes +</div>
-                  <div className="tag me-2 mb-2">Docker +</div>
-                  <div className="tag me-2 mb-2">Ruby on Rails +</div>
-                  <div className="tag me-2 mb-2">Zoho +</div>
-                  <div className="tag me-2 mb-2">Cybersecurity +</div>
-                  <div className="tag me-2 mb-2">UI/UX Design +</div>
-                  <div className="tag me-2 mb-2">SAP +</div>
-                  <div className="tag me-2 mb-2">C++ +</div>
-                  <div className="tag me-2 mb-2">Swift +</div>
-                  <div className="tag me-2 mb-2">Typescript +</div>
-                  <Button variant="link" className="show-more">
-                    show more...
-                  </Button>
+                  {tags
+                    .slice(0, isExpanded ? tags.length : maxVisibleTags)
+                    .map((tag, index) => (
+                      <div
+                        key={index}
+                        className={`tag me-2 mb-2 ${
+                          activeTags.includes(tag) ? "tag-active" : ""
+                        }`}
+                        onClick={() => handleTagClick(tag)}
+                      >
+                        {tag} +
+                      </div>
+                    ))}
+                  <button
+                    onClick={toggleShowMore}
+                    type="button"
+                    className="show-more btn btn-link"
+                  >
+                    {isExpanded ? "Show Less" : "Show More"}
+                  </button>
                 </div>
                 <div className="d-grid gap-2 mt-5">
                   <Link
