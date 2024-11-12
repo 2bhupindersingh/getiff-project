@@ -489,11 +489,11 @@ body {
   }
 }
 @media only screen and (max-width: 768px) {
-  .btn.btn-outline-primary {
+  .navigation .btn.btn-outline-primary {
     padding: 7px 10px 7px 10px;
     font-size: 12px;
   }
-  .btn.btn-primary {
+  .navigation .btn.btn-primary {
     padding: 7px 10px 7px 10px;
     font-size: 12px;
   }
@@ -514,7 +514,8 @@ body {
   padding: 15px 10px;
 }
 .onboarding {
-  margin: 0;
+  margin: 0 0 20px;
+  height: auto;
 }
 select.common-select.form-select {
   margin-bottom: 16px;
@@ -525,6 +526,48 @@ select.common-select.form-select {
 .ps-0.end-date-padding.col-md-3 {
   padding-left: calc(var(--bs-gutter-x)* .5) !important;
 }
+.join-our-community.register .hashtag-heading-space {
+  margin-top: 150px;
+}
+.join-our-community.register.common-register.mx-auto .hashtag-heading-space {
+  margin-top: 110px;
+}
+.email-space {
+  margin-top: 95px;
+}
+.create-password-space {
+  margin-top: 105px;
+}
+.container.mt-5.employer-container {
+  margin-top: 0 !important;
+}
+.industry-expertise-content h3 {
+  margin-top: 0 !important;
+}
+.onboarding-space {
+  margin-top: 40px;
+}
+.onbloarding-img-container {
+  margin: 40px 0;
+}
+.employee-create-password-space {
+  margin-top: 200px;
+}
+.employee-register-steps .join-our-community.register .hashtag-heading-space {
+  margin-top: 180px;
+}
+.employee-detail-space {
+  margin-top: 25px;
+}
+.join-our-community-header.d-flex.align-items-center.justify-content-center.mb-2 {
+  margin-bottom: 0 !important;
+}
+.join-our-community.register .join-our-community-content {
+  padding: 20px;
+}
+.register-successfully .email-space {
+  margin-top: 0;
+}
 }
 @media only screen and (max-width: 480px) {
   .hstack.gap-3 {
@@ -533,5 +576,11 @@ select.common-select.form-select {
   img.logo {
     width: 90px;
     height: 35px;
+  }
+  .onboarding-space {
+    margin-top: 20px;
+  }
+  .onbloarding-img-container {
+    margin: 20px 0;
   }
 }

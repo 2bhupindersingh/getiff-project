@@ -7,7 +7,8 @@ import Link from "next/link";
 
 const Page = () => {
   return (
-    <div className="join-our-community register mx-auto">
+    <div className="container">
+    <div className="join-our-community register common-register mx-auto">
       <div className="join-our-community-header d-flex align-items-center justify-content-center mb-2">
         <Link href="/" className="ms-3 me-auto">
           <Image src={backArrowImg} width={28} height={28} alt="Arrow pic" />
@@ -60,6 +61,7 @@ const Page = () => {
           account for business purposes.
         </p>
       </div>
+    </div>
     </div>
   );
 };

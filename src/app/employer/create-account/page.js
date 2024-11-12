@@ -133,9 +133,9 @@ const Page = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 employer-container">
       {/* Display content based on step */}
-      <div className="mt-4">
+      <>
         {
           step === 1 && (
             // First step start here
@@ -538,7 +538,7 @@ const Page = () => {
           )
           // Fifth step start here
         }
-      </div>
+      </>
 
       {/* Navigation buttons */}
       {/* <div className="mt-4">
