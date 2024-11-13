@@ -268,13 +268,33 @@ const Page = () => {
                   </Form.Group>
                 </Form>
 
-                <div className="default-check employee-create-password-space">
+                <div className="default-check create-password-space">
                   {["checkbox"].map((type) => (
                     <div key={`default-${type}`} className="mb-3">
-                      <Form.Check // prettier-ignore
+                      <Form.Check
                         type={type}
                         id={`default-${type}`}
-                        label={`By signing up, you agree to our Terms and Conditions and Privacy Policy. ${type}`}
+                        label={
+                          <span>
+                            By signing up, you agree to our {" "}
+                            <Link
+                              href="/terms"
+                              rel="noopener noreferrer"
+                              className="terms-link"
+                            >
+                              Terms and Conditions
+                            </Link>
+                            {" "} and {" "}
+                            <Link
+                              href="/terms"
+                              rel="noopener noreferrer"
+                              className="terms-link"
+                            >
+                              Privacy Policy
+                            </Link>
+                            .
+                          </span>
+                        }
                       />
                     </div>
                   ))}
