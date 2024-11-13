@@ -56,7 +56,7 @@ export default function Home() {
         growth.
       </p>
       <p>
-        Hit <strong>“Register”</strong> at the top to join us as an Employee or
+        Hit <strong>“<Link href="/register" className="register-link">Register Now</Link>”</strong> at the top to join us as an Employee or
         Employer. After signing up, you&apos;ll receive a link to download the Getiff
         app and be among the first to explore its features. Let&apos;s create a
         professional network built on trust, transparency, and growth.
@@ -64,8 +64,8 @@ export default function Home() {
       <p className="mb-0">
         (The Getiff Team)
         <br />
-        <Link href="mailto:support@getiff.com" className="footer-link">
-          Contact Us: support@getiff.com
+        <Link href="mailto:supportgetiff@hustletechinnovations.com" className="footer-link">
+          Contact Us: supportgetiff@hustletechinnovations.com
         </Link>
       </p>
       <p>

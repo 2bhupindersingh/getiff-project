@@ -3,12 +3,12 @@ import React from "react";
 import { useState } from "react";
 import { Button, ProgressBar } from "react-bootstrap";
 import Image from "next/image";
-import backArrowImg from "../../../../public/back-arrow.png";
+import backArrowImg from "../../../../public/back-arrow.svg";
 import Link from "next/link";
 import Form from "react-bootstrap/Form";
 import appleImg from "../../../../public/apple-icon.png";
 import googleImg from "../../../../public/google-icon.png";
-import emailImg from "../../../../public/email-icon.png";
+import emailImg from "../../../../public/email-verification-icon.svg";
 import { RiEyeOffLine } from "react-icons/ri";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -119,11 +119,17 @@ const Page = () => {
     } catch (error) {
       // Handle Firebase errors
       if (error.code === "Email already in use") {
-        setError("The email address is already in use. Please try another email.");
+        setError(
+          "The email address is already in use. Please try another email."
+        );
       } else if (error.code === "Invalid email") {
-        setError("The email address is invalid. Please check your email format.");
+        setError(
+          "The email address is invalid. Please check your email format."
+        );
       } else if (error.code === "Weak password") {
-        setError("The password is too weak. Please choose a stronger password.");
+        setError(
+          "The password is too weak. Please choose a stronger password."
+        );
       } else {
         setError("An error occurred: " + error.message);
       }
@@ -333,10 +339,30 @@ const Page = () => {
                 <div className="default-check create-password-space">
                   {["checkbox"].map((type) => (
                     <div key={`default-${type}`} className="mb-3">
-                      <Form.Check // prettier-ignore
+                      <Form.Check
                         type={type}
                         id={`default-${type}`}
-                        label={`By signing up, you agree to our Terms and Conditions and Privacy Policy. ${type}`}
+                        label={
+                          <span>
+                            By signing up, you agree to our {" "}
+                            <Link
+                              href="/terms"
+                              rel="noopener noreferrer"
+                              className="terms-link"
+                            >
+                              Terms and Conditions
+                            </Link>
+                            {" "} and {" "}
+                            <Link
+                              href="/terms"
+                              rel="noopener noreferrer"
+                              className="terms-link"
+                            >
+                              Privacy Policy
+                            </Link>
+                            .
+                          </span>
+                        }
                       />
                     </div>
                   ))}
@@ -459,7 +485,7 @@ const Page = () => {
                     <Form.Label>Website URL</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Write here"
+                      placeholder="https://writehere"
                       className="common-textfield"
                     />
                   </Form.Group>

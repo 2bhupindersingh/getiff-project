@@ -9,6 +9,18 @@
   --font-base: "Times New Roman", Times, serif;
   --hover-color: #089997;
 }
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 body {
   background: #f9fbff !important;
 }
@@ -21,7 +33,7 @@ body {
 .common-textfield.form-control {
   border: 1px solid #e6e6e6;
   font-family: var(--font-stack);
-  font-size: 15px;
+  /* font-size: 15px; */
   font-weight: 400;
   line-height: 18px;
   text-align: left;
@@ -62,9 +74,13 @@ body {
   color: rgba(4, 12, 34, 1);
   font-family: var(--font-stack);
 }
-.btn.btn-outline-primary:hover {
+.btn.btn-outline-primary:hover,
+.btn.btn-outline-primary:hover:active,
+.btn.btn-outline-primary:focus,
+.btn.btn-outline-primary:active {
   border-color: var(--primary-color);
   background: var(--primary-color);
+  color: var(--white);
 }
 .btn.btn-primary {
   border: 1px solid var(--primary-color);
@@ -79,10 +95,14 @@ body {
   font-family: var(--font-stack);
   background: var(--primary-color);
 }
-.btn.btn-primary:hover {
-  border-color: var(--hover-color);
-  background: var(--hover-color);
+.btn.btn-primary:hover, .btn.btn-primary:focus, .btn.btn-primary:active {
+  border-color: var(--hover-color) !important;
+  background: var(--hover-color) !important;
 }
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+  border-color: var(--hover-color) !important;
+  background: var(--hover-color) !important;
+} 
 .home-page-container {
   max-width: 786px;
   width: 100%;
@@ -479,7 +499,23 @@ body {
   justify-content: center;
   margin: 80px 0;
 }
-
+.register-link {
+  text-decoration: none;
+  color: rgba(4, 12, 34, 1);
+}
+.terms-link {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.btn-clipboard .copy-image-filled {
+  display: none;
+}
+.btn-clipboard.active .copy-image-regular {
+  display: none;
+}
+.btn-clipboard.active .copy-image-filled {
+  display: inline-flex;
+}
 /* Responsive start here */
 @media only screen and (max-width: 1200px) {
 }
@@ -508,65 +544,68 @@ body {
   }
   .join-our-community {
     margin: 20px;
-}
-.join-our-community-header h1 {
-  font-size: 17px;
-  padding: 15px 10px;
-}
-.onboarding {
-  margin: 0 0 20px;
-  height: auto;
-}
-select.common-select.form-select {
-  margin-bottom: 16px;
-}
-.pe-0.start-date-padding.col-md-3 {
-  padding-right: calc(var(--bs-gutter-x)* .5) !important;
-}
-.ps-0.end-date-padding.col-md-3 {
-  padding-left: calc(var(--bs-gutter-x)* .5) !important;
-}
-.join-our-community.register .hashtag-heading-space {
-  margin-top: 150px;
-}
-.join-our-community.register.common-register.mx-auto .hashtag-heading-space {
-  margin-top: 110px;
-}
-.email-space {
-  margin-top: 95px;
-}
-.create-password-space {
-  margin-top: 105px;
-}
-.container.mt-5.employer-container {
-  margin-top: 0 !important;
-}
-.industry-expertise-content h3 {
-  margin-top: 0 !important;
-}
-.onboarding-space {
-  margin-top: 40px;
-}
-.onbloarding-img-container {
-  margin: 40px 0;
-}
-.employee-create-password-space {
-  margin-top: 200px;
-}
-.employee-register-steps .join-our-community.register .hashtag-heading-space {
-  margin-top: 180px;
-}
-.employee-detail-space {
-  margin-top: 25px;
-}
-.join-our-community-header.d-flex.align-items-center.justify-content-center.mb-2 {
-  margin-bottom: 0 !important;
-}
-.join-our-community.register .join-our-community-content {
-  padding: 20px;
-}
-.register-successfully .email-space {
-  margin-top: 0;
+  }
+  .join-our-community-header h1 {
+    font-size: 17px;
+    padding: 15px 10px;
+  }
+  .onboarding {
+    margin: 0 0 20px;
+    height: auto;
+  }
+  select.common-select.form-select {
+    margin-bottom: 16px;
+  }
+  /* .pe-0.start-date-padding.col-md-3 {
+    padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+  }
+  .ps-0.end-date-padding.col-md-3 {
+    padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+  } */
+  .join-our-community.register .hashtag-heading-space {
+    margin-top: 150px;
+  }
+  .join-our-community.register.common-register.mx-auto .hashtag-heading-space {
+    margin-top: 110px;
+  }
+  .email-space {
+    margin-top: 95px;
+  }
+  .create-password-space {
+    margin-top: 105px;
+  }
+  .container.mt-5.employer-container {
+    margin-top: 0 !important;
+  }
+  .industry-expertise-content h3 {
+    margin-top: 0 !important;
+  }
+  .onboarding-space {
+    margin-top: 40px;
+  }
+  .onbloarding-img-container {
+    margin: 40px 0;
+  }
+  .employee-create-password-space {
+    margin-top: 200px;
+  }
+  .employee-register-steps .join-our-community.register .hashtag-heading-space {
+    margin-top: 180px;
+  }
+  .employee-detail-space {
+    margin-top: 25px;
+  }
+  .join-our-community-header.d-flex.align-items-center.justify-content-center.mb-2 {
+    margin-bottom: 0 !important;
+  }
+  .join-our-community.register .join-our-community-content {
+    padding: 20px;
+  }
+  .register-successfully .email-space {
+    margin-top: 0;
+  }
+  .home-page-container p {
+    font-size: 16px;
 }
 }
 @media only screen and (max-width: 480px) {

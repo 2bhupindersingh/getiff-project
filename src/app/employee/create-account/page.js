@@ -3,12 +3,12 @@ import React from "react";
 import { useState } from "react";
 import { Button, ProgressBar } from "react-bootstrap";
 import Image from "next/image";
-import backArrowImg from "../../../../public/back-arrow.png";
+import backArrowImg from "../../../../public/back-arrow.svg";
 import Link from "next/link";
 import Form from "react-bootstrap/Form";
 import appleImg from "../../../../public/apple-icon.png";
 import googleImg from "../../../../public/google-icon.png";
-import emailImg from "../../../../public/email-icon.png";
+import emailImg from "../../../../public/email-verification-icon.svg";
 import { RiEyeOffLine } from "react-icons/ri";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -254,6 +254,18 @@ const Page = () => {
                       <strong>letter</strong> and <strong>a number</strong>
                     </Form.Text>
                   </Form.Group>
+                  <Form.Group
+                    className="mb-3 position-relative"
+                    controlId="exampleForm.ControlInput1"
+                  >
+                    <Form.Label>Choose Your Profile URL</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="write here"
+                      className="common-textfield web-url-textfield"
+                    />
+                    <span className="web-url">www.getiff.com/</span>
+                  </Form.Group>
                 </Form>
 
                 <div className="default-check employee-create-password-space">
@@ -460,7 +472,7 @@ const Page = () => {
                   >
                     <Form.Label>Starting Date</Form.Label>
                     <Row>
-                      <Col md={3} className="pe-0 start-date-padding">
+                      <Col md={3} sm={3} xs={3} className="pe-0 start-date-padding">
                         {" "}
                         <Form.Group
                           className="mb-3 position-relative"
@@ -473,7 +485,7 @@ const Page = () => {
                           />
                         </Form.Group>
                       </Col>
-                      <Col md={6}>
+                      <Col md={6} sm={6} xs={6}>
                         {" "}
                         <Form.Select
                           className="common-select"
@@ -485,7 +497,7 @@ const Page = () => {
                           <option value="3">March</option>
                         </Form.Select>
                       </Col>
-                      <Col md={3} className="ps-0 end-date-padding">
+                      <Col md={3} sm={3} xs={3} className="ps-0 end-date-padding">
                         {" "}
                         <Form.Group
                           className="mb-3 position-relative"
@@ -561,8 +573,8 @@ const Page = () => {
                   >
                     <Form.Label>Feedback on your experience</Form.Label>
                     <div className="tags-container d-flex align-items-center flex-wrap">
-                      <div className="tag me-2 mb-2">Python +</div>
-                      <div className="tag me-2 mb-2">JavaScript +</div>
+                      <div className="tag me-2 mb-2">onboarding +</div>
+                      <div className="tag me-2 mb-2">workculture +</div>
                     </div>
                     <Form.Control
                       as="textarea"

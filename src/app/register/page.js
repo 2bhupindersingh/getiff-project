@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import employeeImg from "../../../public/employee-icon.png";
-import employerImg from "../../../public/employer-icon.png";
-import backArrowImg from "../../../public/back-arrow.png";
+import employeeImg from "../../../public/employee-icon.svg";
+import employerImg from "../../../public/employer-icon.svg";
+import backArrowImg from "../../../public/back-arrow.svg";
 import Link from "next/link";
 
 const Page = () => {

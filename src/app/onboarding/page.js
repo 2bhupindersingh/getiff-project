@@ -2,9 +2,9 @@
 import React from "react";
 import { Button, ProgressBar } from "react-bootstrap";
 import Image from "next/image";
-import employerImg from "../../../public/employer-img.png";
-import employeeImg from "../../../public/employee-img.png";
-import getiffLogo from "../../../public/getiff-logo.png";
+import employerImg from "../../../public/employer-img.svg";
+import employeeImg from "../../../public/employee-img.svg";
+import getiffLogo from "../../../public/getiff-logo.svg";
 import stepNextImg from "../../../public/step-next-arrow.svg";
 import Link from "next/link";
 import Row from "react-bootstrap/Row";

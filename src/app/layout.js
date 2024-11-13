@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import Image from "next/image";
 import "./globals.css";
-import logo from "../../public/logo.png";
+import logo from "../../public/logo.svg";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
