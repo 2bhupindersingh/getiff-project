@@ -52,16 +52,30 @@ const Page = () => {
     "Blockchain",
     "Cloud Computing (AWC, Azure, GCP)",
     "PHP",
+    "Mobile Development (iOS, Android)",
+    "Email Marketing",
+    "Zoho",
+    "Cybersecurity",
+    "Data Analytics",
+    "SAP",
+    "C++",
+    "UI/UX Design",
+    "Typescript",
+    "Go (Gplang)",
+    "Big Data Technologies (Hadoop, Spark)",
+    "R Programming",
+    "Salesforce Development",
+    "Swift",
     "Kubernetes",
     "Docker",
     "Ruby on Rails",
-    "Zoho",
-    "Cybersecurity",
-    "UI/UX Design",
-    "SAP",
-    "C++",
-    "Swift",
-    "Typescript",
+    "Agile Project Management",
+    "Digital Marketing Strategy",
+    "SEO",
+    "SEM",
+    "Google Analytics",
+    "Copywriting",
+    "Marketing Automation (e.g., HubSpot, Marketo)",
   ];
 
   // Set how many tags to show when collapsed
@@ -254,9 +268,14 @@ const Page = () => {
                     />
                   </div>
                   <p className="text-center  mb-2">
-                    You must use Getiff in line with our{" "}
-                    <strong>Acceptable Use Policy</strong>. You cannot use a
-                    personal account for business purposes.
+                    We sent a verification email to{" "}
+                    <Link
+                      href="mailto:nitishkaliajoh@gmail.com"
+                      className="email-link"
+                    >
+                      nitishkaliajoh@gmail.com
+                    </Link>
+                    , please check your email
                   </p>
 
                   <div className="d-grid gap-2 email-space">
@@ -266,7 +285,7 @@ const Page = () => {
                       onClick={nextStep}
                       disabled={step === totalSteps}
                     >
-                      Continue
+                      Open email to approve
                     </Button>
                     <Button
                       variant="outline-light"
@@ -412,7 +431,7 @@ const Page = () => {
                     <Form.Label>Company Name</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Name"
+                      placeholder="Your company name, please?"
                       className="common-textfield"
                     />
                   </Form.Group>
@@ -424,12 +443,12 @@ const Page = () => {
                     <Form.Label>Company Address</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter your company address"
+                      placeholder="Address Line"
                       className="common-textfield"
                     />
                   </Form.Group>
                   <Row>
-                    <Col md={6}>
+                    <Col md={6} sm={6} xs={6}>
                       {" "}
                       <Form.Select
                         className="common-select"
@@ -441,7 +460,7 @@ const Page = () => {
                         <option value="3">Canada</option>
                       </Form.Select>
                     </Col>
-                    <Col md={6}>
+                    <Col md={6} sm={6} xs={6} className="ps-0">
                       {" "}
                       <Form.Group
                         className="mb-3 position-relative"
@@ -449,7 +468,7 @@ const Page = () => {
                       >
                         <Form.Control
                           type="number"
-                          placeholder="Pincode"
+                          placeholder="Enter postal code"
                           className="common-textfield"
                         />
                       </Form.Group>
@@ -459,10 +478,10 @@ const Page = () => {
                     className="mb-3 position-relative"
                     controlId="exampleForm.ControlInput4"
                   >
-                    <Form.Label>Registration Number</Form.Label>
+                    <Form.Label>Registration No. / GSTN No.</Form.Label>
                     <Form.Control
                       type="number"
-                      placeholder="Your Registration Number"
+                      placeholder="Company ID number"
                       className="common-textfield"
                     />
                   </Form.Group>
@@ -474,7 +493,7 @@ const Page = () => {
                     <Form.Label>Mobile Number</Form.Label>
                     <Form.Control
                       type="number"
-                      placeholder="Your Mobile Number"
+                      placeholder="Enter your mobile number"
                       className="common-textfield"
                     />
                   </Form.Group>

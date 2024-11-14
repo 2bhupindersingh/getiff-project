@@ -57,7 +57,7 @@ const Page = () => {
         </Link>
         <p className="text-center hashtag-heading-space mb-2">
           You must use Getiff in line with our{" "}
-          <strong>Acceptable Use Policy</strong>. You cannot use a personal
+          <Link href="/terms" className="use-policy-link">Acceptable Use Policy</Link>. You cannot use a personal
           account for business purposes.
         </p>
       </div>

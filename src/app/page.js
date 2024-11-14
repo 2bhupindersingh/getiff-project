@@ -73,6 +73,7 @@ export default function Home() {
           Terms and Privacy
         </Link>
       </p>
+      <Link href="/onboarding" className="btn btn-primary">Register Now</Link>
     </div>
   );
 }

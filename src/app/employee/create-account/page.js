@@ -47,16 +47,30 @@ const Page = () => {
     "Blockchain",
     "Cloud Computing (AWC, Azure, GCP)",
     "PHP",
+    "Mobile Development (iOS, Android)",
+    "Email Marketing",
+    "Zoho",
+    "Cybersecurity",
+    "Data Analytics",
+    "SAP",
+    "C++",
+    "UI/UX Design",
+    "Typescript",
+    "Go (Gplang)",
+    "Big Data Technologies (Hadoop, Spark)",
+    "R Programming",
+    "Salesforce Development",
+    "Swift",
     "Kubernetes",
     "Docker",
     "Ruby on Rails",
-    "Zoho",
-    "Cybersecurity",
-    "UI/UX Design",
-    "SAP",
-    "C++",
-    "Swift",
-    "Typescript",
+    "Agile Project Management",
+    "Digital Marketing Strategy",
+    "SEO",
+    "SEM",
+    "Google Analytics",
+    "Copywriting",
+    "Marketing Automation (e.g., HubSpot, Marketo)",
   ];
 
   // Set how many tags to show when collapsed
@@ -198,7 +212,7 @@ const Page = () => {
                       onClick={nextStep}
                       disabled={step === totalSteps}
                     >
-                      Continue
+                      Open email to approve
                     </Button>
                     <Button
                       variant="outline-light"
@@ -276,15 +290,15 @@ const Page = () => {
                         id={`default-${type}`}
                         label={
                           <span>
-                            By signing up, you agree to our {" "}
+                            By signing up, you agree to our{" "}
                             <Link
                               href="/terms"
                               rel="noopener noreferrer"
                               className="terms-link"
                             >
                               Terms and Conditions
-                            </Link>
-                            {" "} and {" "}
+                            </Link>{" "}
+                            and{" "}
                             <Link
                               href="/terms"
                               rel="noopener noreferrer"
@@ -344,7 +358,7 @@ const Page = () => {
                     <Form.Label>Full Name</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Name"
+                      placeholder="Your name, please?"
                       className="common-textfield"
                     />
                   </Form.Group>
@@ -356,12 +370,12 @@ const Page = () => {
                     <Form.Label>Address</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter your address"
+                      placeholder="Address Line"
                       className="common-textfield"
                     />
                   </Form.Group>
                   <Row>
-                    <Col md={6}>
+                    <Col md={6} sm={6} xs={6}>
                       {" "}
                       <Form.Select
                         className="common-select"
@@ -373,7 +387,7 @@ const Page = () => {
                         <option value="3">Canada</option>
                       </Form.Select>
                     </Col>
-                    <Col md={6}>
+                    <Col md={6} sm={6} xs={6} className="ps-0">
                       {" "}
                       <Form.Group
                         className="mb-3 position-relative"
@@ -381,7 +395,7 @@ const Page = () => {
                       >
                         <Form.Control
                           type="number"
-                          placeholder="Pincode"
+                          placeholder="Enter postal code"
                           className="common-textfield"
                         />
                       </Form.Group>
@@ -395,7 +409,7 @@ const Page = () => {
                     <Form.Label>Phone Number</Form.Label>
                     <Form.Control
                       type="number"
-                      placeholder="Your Registration Number"
+                      placeholder="Enter your mobile number"
                       className="common-textfield"
                     />
                   </Form.Group>
@@ -445,7 +459,7 @@ const Page = () => {
                     <Form.Label>Current Company</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Company Name"
+                      placeholder="Where are you currently working?"
                       className="common-textfield"
                     />
                   </Form.Group>
@@ -457,7 +471,7 @@ const Page = () => {
                     <Form.Label>Job Title</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Job Title"
+                      placeholder="Enter your position (e.g., Project Manager)"
                       className="common-textfield"
                     />
                   </Form.Group>
@@ -466,10 +480,10 @@ const Page = () => {
                     className="mb-3 position-relative"
                     controlId="exampleForm.ControlInput4"
                   >
-                    <Form.Label>Employment Id</Form.Label>
+                    <Form.Label>Employment Id (optional)</Form.Label>
                     <Form.Control
                       type="number"
-                      placeholder="Write here"
+                      placeholder="Your ID number"
                       className="common-textfield"
                     />
                   </Form.Group>
@@ -481,7 +495,7 @@ const Page = () => {
                     <Form.Label>Your current salary</Form.Label>
                     <Form.Control
                       type="number"
-                      placeholder="In lakhs per annum"
+                      placeholder="Enter your annual package (lpa)"
                       className="common-textfield"
                     />
                   </Form.Group>
@@ -492,7 +506,12 @@ const Page = () => {
                   >
                     <Form.Label>Starting Date</Form.Label>
                     <Row>
-                      <Col md={3} sm={3} xs={3} className="pe-0 start-date-padding">
+                      <Col
+                        md={3}
+                        sm={3}
+                        xs={3}
+                        className="pe-0 start-date-padding"
+                      >
                         {" "}
                         <Form.Group
                           className="mb-3 position-relative"
@@ -517,7 +536,12 @@ const Page = () => {
                           <option value="3">March</option>
                         </Form.Select>
                       </Col>
-                      <Col md={3} sm={3} xs={3} className="ps-0 end-date-padding">
+                      <Col
+                        md={3}
+                        sm={3}
+                        xs={3}
+                        className="ps-0 end-date-padding"
+                      >
                         {" "}
                         <Form.Group
                           className="mb-3 position-relative"
@@ -575,7 +599,7 @@ const Page = () => {
                   community
                 </p>
                 <Form>
-                  <Form.Group
+                  {/* <Form.Group
                     className="mb-3 position-relative"
                     controlId="exampleForm.ControlInput1"
                   >
@@ -585,7 +609,7 @@ const Page = () => {
                       placeholder="Company Name"
                       className="common-textfield"
                     />
-                  </Form.Group>
+                  </Form.Group> */}
 
                   <Form.Group
                     className="mb-3 position-relative"
