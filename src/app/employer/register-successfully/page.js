@@ -61,9 +61,8 @@ const Page = () => {
               Go back to Home
             </Link>
 
-            <Link
-            href="/onboarding"
-              onClick={() => copyToClipboard(currentUrl)}
+            <Button
+              onClick={() => copyToClipboard('https://getiff-project.netlify.app/onboarding')}
               className={isActive ? "btn btn-primary btn-clipboard active" : "btn btn-primary btn-clipboard"}
             >
               Bring Others Onboard
@@ -81,7 +80,13 @@ const Page = () => {
                 alt="copy pic"
                 className="ms-2 copy-image-filled"
               />
-            </Link>
+            </Button>
+            {
+              copySuccess &&
+              <Alert variant="success">
+                {copySuccess}
+              </Alert>
+            }
           </div>
           <p className="benefits-text text-center mt-2">
             Know someone who would benefit from our platform? Invite them now!
