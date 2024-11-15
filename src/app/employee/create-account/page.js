@@ -616,13 +616,13 @@ const Page = () => {
                     controlId="exampleForm.ControlInput3"
                   >
                     <Form.Label>Feedback on your experience</Form.Label>
-                    <div className="tags-container d-flex align-items-center flex-wrap">
+                    {/* <div className="tags-container d-flex align-items-center flex-wrap">
                       <div className="tag me-2 mb-2">onboarding +</div>
                       <div className="tag me-2 mb-2">workculture +</div>
-                    </div>
+                    </div> */}
                     <Form.Control
                       as="textarea"
-                      placeholder="Write here"
+                      placeholder={`e.g "Working at TechVista has been a rewarding experience. The company values innovation, and I feel my work here truly makes an impact. It’s a fantastic place for driven individuals who thrive in dynamic, fast-paced environments."`}
                       className="common-textfield"
                       rows={3}
                     />

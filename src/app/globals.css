@@ -520,6 +520,10 @@ body {
 .btn-clipboard.active .copy-image-filled {
   display: inline-flex;
 }
+textarea.form-control {
+  height: 159px;
+  line-height: 20px;
+}
 /* Responsive start here */
 @media only screen and (max-width: 1200px) {
 }
