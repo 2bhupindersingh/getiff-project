@@ -33,7 +33,7 @@ const Page = () => {
           <div className="social-grid-content">
             <h6 className="mb-0">Employer</h6>
             <p className="mb-0">
-              Explore company culture and manage your work history.
+              Verify employee histories and manage disputes.
             </p>
           </div>
         </div>
@@ -50,7 +50,7 @@ const Page = () => {
           <div className="social-grid-content">
             <h6 className="mb-0">Employee</h6>
             <p className="mb-0">
-              Verify employee histories and manage disputes.
+              Explore company culture and manage your work history.
             </p>
           </div>
         </div>

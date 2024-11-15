@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
 import Link from "next/link";
+import Header from "./Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,22 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <nav className="navigation">
-          <Stack direction="horizontal" gap={3}>
-            <Link href="/" className="me-auto">
-              <Image
-                src={logo}
-                width={111}
-                height={42}
-                alt="Picture of the author"
-                className="logo"
-              />
-            </Link>
-            <Link href="/join-our-community" className="btn btn-outline-primary">Join our Community</Link>
-            <Link href="/onboarding" className="btn btn-primary">Register Now</Link>
-          </Stack>
-        </nav>
-        
+        <Header />
         {children}
       </body>
     </html>

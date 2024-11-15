@@ -60,11 +60,10 @@ const Page = () => {
             <Link href="/" className="btn btn-link btn-goto-home">
               Go back to Home
             </Link>
-            <Button
-              variant="primary"
-              size="lg"
+            <Link
+            href="/onboarding"
               onClick={() => copyToClipboard(currentUrl)}
-              className={isActive ? "btn-clipboard active" : "btn-clipboard"}
+              className={isActive ? "btn btn-primary btn-clipboard active" : "btn btn-primary btn-clipboard"}
             >
               Bring Others Onboard
               <Image
@@ -81,8 +80,7 @@ const Page = () => {
                 alt="copy pic"
                 className="ms-2 copy-image-filled"
               />
-            </Button>
-            {copySuccess && <Alert variant="success">{copySuccess}</Alert>}
+            </Link>
           </div>
           <p className="benefits-text text-center mt-2">
             Know someone who would benefit from our platform? Invite them now!
