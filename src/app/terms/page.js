@@ -105,7 +105,7 @@ const Page = () => {
       <h6>Contact Us</h6>
       <p className="mb-5">
         If you have any questions about these Terms, please contact us at
-        [support@getiff.com].
+        [supportgetiff@hustletechinnovations.com].
       </p>
       <h1 className="mb-4">Privacy Policy</h1>
       <h6>Information We Collect</h6>
@@ -182,7 +182,7 @@ const Page = () => {
         </li>
         <li>
           Deletion: You can request the deletion of your account and personal
-          information by contacting [support@getiff.com].
+          information by contacting [supportgetiff@hustletechinnovations.com].
         </li>
       </ul>
       <h6>Cookies</h6>
@@ -209,7 +209,7 @@ const Page = () => {
       <h6>Contact Us</h6>
       <p>
         If you have any questions about our Privacy Policy, please contact us at
-        [support@getiff.com].
+        [supportgetiff@hustletechinnovations.com].
       </p>
     </div>
   );
