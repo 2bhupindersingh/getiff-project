@@ -8,6 +8,7 @@
   --font-stack: "Inter", sans-serif;
   --font-base: "Times New Roman", Times, serif;
   --hover-color: #089997;
+  --black:#000000;
 }
 /* Chrome, Safari, Edge, Opera */
 input[type="number"]::-webkit-outer-spin-button,
@@ -102,7 +103,7 @@ body {
 .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
   border-color: var(--hover-color) !important;
   background: var(--hover-color) !important;
-} 
+}
 .home-page-container {
   max-width: 786px;
   width: 100%;
