@@ -1,235 +1,79 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'react-bootstrap';
-import styles from './page.module.css';
-import Image from 'next/image';
 import Link from 'next/link';
-import { AiFillLinkedin } from 'react-icons/ai';
-import { BsInstagram, BsTwitterX } from 'react-icons/bs';
-import { MdOutlineEmail } from 'react-icons/md';
-import verifiedReviews from '../../../public/verified-reviews.svg';
-import gracefullEmployeeImg from '../../../public/graceful-employee.svg';
-import stayEmpowered from '../../../public/stay-empowered-img.svg';
-import raseConcernImg from '../../../public/raise-concern.svg';
-import { RiLinkedinLine } from 'react-icons/ri';
-import logo from '../../../public/logo.svg';
 
 export default function OurStory() {
   return (
-    <>
-      <section className={styles.heroContainer}>
-        <section className={styles.heroSection}>
-          <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>What's New on Getiff</h1>
-            <p className={styles.heroText}>
-              Discover the innovative ways Getiff is transforming the workplace for employees and
-              employers alike.
-            </p>
-          </div>
-        </section>
-      </section>
-
-      <section className={styles.storySection}>
-        <div className={styles.flexContainer}>
-          <div className={`${styles.leftColumn} ${styles.orderClass}`}>
-            <h6 className={styles.storySubHeading}>Employee Reviews</h6>
-            <h4 className={styles.storyHeading}>
-              Verified Reviews, Powered by
-              <br /> Transparency
-            </h4>
-            <ul className={styles.storyList}>
-              <li>
-                <strong>Get authentic insights</strong> directly from employees—past and present.
-              </li>
-              <li>
-                Uncover verified reviews on work culture, salaries, and growth opportunities to make
-                informed decisions.
-              </li>
-              <li>Navigate through real feedback, eliminating the guesswork.</li>
-            </ul>
-          </div>
-          <div className={styles.rightColumn}>
-            <div className={styles.imageWrapper}>
-              <Image
-                src={verifiedReviews}
-                alt="Verified Reviews Illustration"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: 'contain' }}
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.storySection}>
-        <div className={styles.flexContainer}>
-          <div className={styles.leftColumn}>
-            <div className={styles.imageWrapper}>
-              <Image
-                src={gracefullEmployeeImg}
-                alt="Employee History Illustration"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-          </div>
-          <div className={styles.rightColumn}>
-            <h6 className={styles.storySubHeading}>Employer Insights</h6>
-            <h4 className={styles.storyHeading}>
-              Graceful Employee History for
-              <br /> Employers
-            </h4>
-            <ul className={styles.storyList}>
-              <li>
-                Access <strong>accurate employment history</strong> to make confident hiring
-                decisions.
-              </li>
-              <li>
-                Simplify your hiring process with reviews from past employers, work performance
-                insights, and dispute resolutions.
-              </li>
-              <li>All this, while ensuring compliance and privacy.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.storySection}>
-        <div className={styles.flexContainer}>
-          <div className={`${styles.leftColumn} ${styles.orderClass}`}>
-            <h6 className={styles.storySubHeading}>AI-Powered Insights</h6>
-            <h4 className={styles.storyHeading}>
-              Stay Empowered With <br />
-              AI-Driven Insights
-            </h4>
-            <ul className={styles.storyList}>
-              <li>
-                Getiff's <strong>AI-powered analytics</strong> provide actionable data on salary
-                benchmarks, trends, and company performance.
-              </li>
-              <li>
-                Employees can compare companies effortlessly, while employers track engagement and
-                workforce trends.
-              </li>
-              <li>Decisions, now backed by data.</li>
-            </ul>
-          </div>
-          <div className={styles.rightColumn}>
-            <div className={styles.imageWrapper}>
-              <Image
-                src={stayEmpowered}
-                alt="AI Insights Illustration"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.storySection}>
-        <div className={styles.flexContainer}>
-          <div className={styles.leftColumn}>
-            <div className={styles.imageWrapper}>
-              <Image
-                src={raseConcernImg}
-                alt="Raise Concerns Illustration"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-          </div>
-          <div className={styles.rightColumn}>
-            <h6 className={styles.storySubHeading}>Resolve concerns</h6>
-            <h4 className={styles.storyHeading}>
-              Raise Concerns and Get
-              <br /> Support
-            </h4>
-            <ul className={styles.storyList}>
-              <li>
-                A <strong>dedicated dispute resolution</strong> feature ensures fairness and
-                accountability in the workplace.
-              </li>
-              <li>
-                Employees can raise concerns regarding final settlements, experience letters, and
-                more, directly on the platform.
-              </li>
-              <li>Employers can resolve issues transparently and build trust.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <footer className={styles.footer}>
-        <div className={styles.footerContainer}>
-          <div className={styles.footerTop}>
-            <div className={styles.footerLogo}>
-              <Link href="/">
-                <Image
-                  src={logo}
-                  width={111}
-                  height={42}
-                  alt="Picture of the author"
-                  className="logo"
-                />
-              </Link>
-            </div>
-            <div className={styles.footerText}>
-              <p>
-                Join the journey. Over 10,000+ users have already registered!{' '}
-                <Link href="/">Get Started Today</Link>
-              </p>
-            </div>
-          </div>
-          <div className={styles.footerBottom}>
-            <div className={styles.footerCopyright}>
-              &copy;{new Date().getFullYear()}hustletechinnovations
-            </div>
-            <div className={styles.footerLegal}>
-              <Link href="/terms">Terms and Policy</Link>
-              <Link href="/">Our Story</Link>
-              <Link href="/join-our-community">Join our Community</Link>
-              <Link href="/">Our Blogs</Link>
-              <Link href="/">Email us</Link>
-            </div>
-            <div className={styles.socialLinks}>
-              <h6 className={styles.socialTitle}>Follow us:</h6>
-              <Link
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className={styles.socialLink}
-              >
-                <BsInstagram />
-              </Link>
-              <Link
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-                className={styles.socialLink}
-              >
-                <BsTwitterX />
-              </Link>
-              <Link
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className={styles.socialLink}
-              >
-                <RiLinkedinLine />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </>
+    <div className="home-page-container mx-auto">
+      <h1>Welcome to Getiff</h1>
+      <p>
+        <i>Your partner in building a career with transparency, opportunity, and growth.</i>
+      </p>
+      <p>
+        <strong>Update:</strong> We&apos;ve been building Getiff for the past year, and over 10,000
+        people have already registered on our platform. Getiff is a powerful new platform designed
+        to connect professionals and companies in meaningful ways, with features that prioritize
+        transparency, feedback, and real-time insights into the workplace experience.
+      </p>
+      <p>
+        At Getiff, we believe in an open and honest approach to career growth. In today&apos;s
+        fast-paced world, we&apos;re giving employees and employers a unified space where
+        connections are real, opportunities are clear, and the path forward is accessible for
+        everyone.
+      </p>
+      <p>
+        In a time when careers are increasingly dynamic, we&apos;re taking a stand for open
+        communication and fair opportunities. By connecting employers and employees directly through
+        verified experiences and insights, Getiff is designed to empower both sides of the career
+        equation.
+      </p>
+      <p>
+        Fair, Real Feedback: Get valuable feedback from past employers and learn from others&apos;
+        experiences. Supportive Networking: Connect with professionals and employers who prioritize
+        a positive, transparent work culture. Informed Career Decisions: Compare salaries across
+        industries and locations, see real reviews, and make career moves with confidence.
+      </p>
+      <p>
+        Our team is comprised of industry veterans and forward-thinking developers who have one
+        goal: to build a trustworthy platform that respects and serves its users. We&apos;re here to
+        make Getiff a reliable and transparent space for authentic connections, insights, and
+        opportunities.
+      </p>
+      <p>
+        Data Security: Your information is safe with us. We prioritize data privacy and user
+        security in every feature we develop. User-Driven Development: We&apos;re building this
+        platform with continuous feedback from our community because we know your experiences shape
+        our mission. Global Accessibility: Our platform is designed for professionals across
+        industries, roles, and regions, making it a universal tool for career growth.
+      </p>
+      <p>
+        Hit{' '}
+        <strong>
+          “
+          <Link href="/register" className="register-link">
+            Register Now
+          </Link>
+          ”
+        </strong>{' '}
+        at the top to join us as an Employee or Employer. After signing up, you&apos;ll receive a
+        link to download the Getiff app and be among the first to explore its features. Let&apos;s
+        create a professional network built on trust, transparency, and growth.
+      </p>
+      <p className="mb-0">
+        (The Getiff Team)
+        <br />
+        <Link href="mailto:supportgetiff@hustletechinnovations.com" className="footer-link">
+          Contact Us: supportgetiff@hustletechinnovations.com
+        </Link>
+      </p>
+      <p>
+        <Link href="/terms" className="footer-link">
+          Terms and Privacy
+        </Link>
+      </p>
+      <Link href="/onboarding" className="btn btn-primary">
+        Register Now
+      </Link>
+    </div>
   );
 }
