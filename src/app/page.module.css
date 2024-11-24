@@ -116,7 +116,7 @@
 }
 .footer {
   padding: 80px 0 0;
-  margin-top: 80px;
+  margin-top: 0;
   font-family: var(--font-stack);
 }
 
