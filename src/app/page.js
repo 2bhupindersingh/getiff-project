@@ -17,7 +17,7 @@ export default function Home() {
       <section className={styles.heroContainer}>
         <section className={styles.heroSection}>
           <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>What's New on Getiff</h1>
+            <h1 className={styles.heroTitle}>What&apos;s New on Getiff</h1>
             <p className={styles.heroText}>
               Discover the innovative ways Getiff is transforming the workplace for employees and
               employers alike.
@@ -51,7 +51,7 @@ export default function Home() {
                 src={verifiedReviews}
                 alt="Verified Reviews Illustration"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw ' 50vw"
                 style={{ objectFit: 'cover' }}
                 priority
               />
@@ -104,8 +104,8 @@ export default function Home() {
             </h4>
             <ul className={styles.storyList}>
               <li>
-                Getiff's <strong>AI-powered analytics</strong> provide actionable data on salary
-                benchmarks, trends, and company performance.
+                Getiff&apos;s <strong>AI-powered analytics</strong> provide actionable data on
+                salary benchmarks, trends, and company performance.
               </li>
               <li>
                 Employees can compare companies effortlessly, while employers track engagement and
@@ -120,7 +120,7 @@ export default function Home() {
                 src={stayEmpowered}
                 alt="AI Insights Illustration"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw' 50vw"
                 style={{ objectFit: 'cover' }}
               />
             </div>
