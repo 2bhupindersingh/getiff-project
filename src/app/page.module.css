@@ -358,7 +358,7 @@
 
   .storySection .imageWrapper {
     order: 1;
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 
   /* Force text content to bottom */
