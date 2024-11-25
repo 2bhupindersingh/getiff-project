@@ -719,12 +719,12 @@ line-height: 26px;
 
   .centeredHeading {
     font-size: 26px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .centeredSubheading {
     font-size: 14px;
-    margin-bottom: 12px;
+    margin-bottom: 0;
   }
 
   .centeredParagraph {
