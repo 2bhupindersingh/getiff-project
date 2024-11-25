@@ -711,9 +711,9 @@ width: 100%;
   }
 }
 @media only screen and (max-width: 480px) {
-  .hstack.gap-3 {
+  /* .hstack.gap-3 {
     gap: 0.25rem !important;
-  }
+  } */
   img.logo {
     width: 90px;
     height: 35px;
