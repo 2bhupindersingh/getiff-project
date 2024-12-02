@@ -1,6 +1,8 @@
 "use client";
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getAuth } from 'firebase/auth';
+import { ref, get } from 'firebase/database';
+import { db } from '../../firebase/config';
 import Image from "next/image";
 import successImg from "../../../../public/success-icon.png";
 import copyImg from "../../../../public/fluent_copy-24-regular.svg";
@@ -13,6 +15,46 @@ const Page = () => {
   const [copySuccess, setCopySuccess] = useState("");
   const [currentUrl, setCurrentUrl] = useState("");
   const [isActive, setIsActive] = useState(false);
+  const [companyName, setCompanyName] = useState("");
+
+  useEffect(() => {
+    const fetchCompanyName = async () => {
+      try {
+        const auth = getAuth();
+        const user = auth.currentUser;
+        console.log("Current user:", user); // Debug log
+
+        if (user) {
+          const userRef = ref(db, `employers/${user.uid}`);
+          console.log("Fetching data for uid:", user.uid); // Debug log
+          
+          const snapshot = await get(userRef);
+          console.log("Database snapshot:", snapshot.val()); // Debug log
+          
+          if (snapshot.exists()) {
+            const userData = snapshot.val();
+            console.log("Company name from DB:", userData.companyName); // Debug log
+            setCompanyName(userData.companyName || 'Employer');
+          } else {
+            console.log("No data found for this user"); // Debug log
+            setCompanyName('Employer');
+          }
+        } else {
+          console.log("No authenticated user found"); // Debug log
+          setCompanyName('Employer');
+        }
+      } catch (error) {
+        console.error("Error fetching company name:", error);
+        setCompanyName('Employer');
+      }
+    };
+
+    // Add a small delay to ensure Firebase is initialized
+    setTimeout(() => {
+      fetchCompanyName();
+    }, 1000);
+  }, []);
+
   const copyToClipboard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -32,6 +74,7 @@ const Page = () => {
       setTimeout(() => setCopySuccess(""), 3000);
     }
   };
+
   return (
     <div className="container">
       <div className="join-our-community register register-successfully mx-auto">
@@ -48,10 +91,10 @@ const Page = () => {
           </div>
           <h6 className="mb-1 text-center">
             Welcome to Getiff,
-            <br /> [Employer&rsquo;s Name]!
+            <br /> {companyName}
           </h6>
           <p className="text-center">
-            You&rsquo;re all set to start verifying employee histories,
+            You’re all set to start verifying employee histories,
             exploring company reviews, and managing disputes with ease. Begin by
             searching for employees or updating your company profile to get the
             most out of our platform.

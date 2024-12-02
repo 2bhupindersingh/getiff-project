@@ -585,10 +585,10 @@ textarea.form-control {
 /* Responsive start here */
 @media only screen and (max-width: 1200px) {
   .hide-on-mobile img {
-width: auto !important;
-max-width: 100%;
-height: auto !important;
-}
+    width: auto !important;
+    max-width: 100%;
+    height: auto !important;
+  }
 }
 @media only screen and (max-width: 991px) {
   .navigation {
@@ -603,28 +603,28 @@ height: auto !important;
   }
   .custom-order-3 {
     order: 3;
-}
-.hide-on-desktop {
-  display: flex !important;
-  margin-bottom: 20px;
-}
-.hide-on-mobile {
-  display: none !important;
-}
-.hide-on-desktop img {
-width: auto !important;
-max-width: 100%;
-height: auto !important;
-}
-.btn-container.hstack {
-  flex-direction: column;
-}
-.btn-container .btn.btn-primary.btn-register-home {
-width: 100%;
-}
-.btn-container .btn.btn-outlined.btn-contact-home {
-width: 100%;
-}
+  }
+  .hide-on-desktop {
+    display: flex !important;
+    margin-bottom: 20px;
+  }
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .hide-on-desktop img {
+    width: auto !important;
+    max-width: 100%;
+    height: auto !important;
+  }
+  .btn-container.hstack {
+    flex-direction: column;
+  }
+  .btn-container .btn.btn-primary.btn-register-home {
+    width: 100%;
+  }
+  .btn-container .btn.btn-outlined.btn-contact-home {
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 768px) {
   .navigation .btn.btn-outline-primary {
@@ -724,4 +724,13 @@ width: 100%;
   .onbloarding-img-container {
     margin: 20px 0;
   }
+}
+.btn.disabled,
+.btn:disabled,
+fieldset:disabled .btn {
+  color: var(--white) !important;
+  pointer-events: none !important;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  opacity: var(--bs-btn-disabled-opacity) !important;
 }
