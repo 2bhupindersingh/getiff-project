@@ -229,11 +229,11 @@ const Page = () => {
 
       // For Google Sign-in, most emails are pre-verified
       if (user.emailVerified) {
-        console.log("Email is verified, moving to step 3");
+        console.log('Email is verified, moving to step 3');
         setStep(3); // Move to password creation step
         setSuccess('Email verified successfully!');
       } else {
-        console.log("Email needs verification");
+        console.log('Email needs verification');
         // Send verification email
         await sendEmailVerification(user);
         setSuccess('Verification email sent. Please check your inbox.');
@@ -244,7 +244,6 @@ const Page = () => {
         setVerificationTimer(timer);
         setStep(2); // Stay on verification step
       }
-
     } catch (error) {
       console.error('Google Sign In Error:', error);
       setError('An error occurred during Google sign-in: ' + error.message);
@@ -309,7 +308,8 @@ const Page = () => {
   const handlePasswordSubmit = async () => {
     if (!validatePassword(password)) {
       setPasswordError(
-        'Password must be at least 9 characters long and contain both letters and numbers'
+        // 'Password must be at least 9 characters long and contain both letters and numbers'
+        <>Password must be at least 9 characters long and contain both letters and numbers</>
       );
       return;
     }
@@ -454,6 +454,7 @@ const Page = () => {
               onChange={(e) => setCompanyName(e.target.value)}
               placeholder="Enter company name"
               required
+              className="common-textfield"
             />
           </Form.Group>
 
@@ -761,13 +762,28 @@ const Page = () => {
                     <span className="eye-icon" onClick={togglePasswordVisibility}>
                       {showPassword ? <RiEyeLine /> : <RiEyeOffLine />}
                     </span>
-                    {passwordError && (
-                      <Form.Text className="text-danger">{passwordError}</Form.Text>
+                    {passwordError ? (
+                      <Form.Text className="text-danger">
+                        At least <strong>9 characters</strong>, containing a <strong>letter</strong>{' '}
+                        and <strong>a number</strong>
+                      </Form.Text>
+                    ) : (
+                      <Form.Text className="text-normal">
+                        At least <strong>9 characters</strong>, containing a <strong>letter</strong>{' '}
+                        and <strong>a number</strong>
+                      </Form.Text>
                     )}
-                    <Form.Text id="passwordHelpBlock">
+                    {/* {passwordError && (
+                       <Form.Text className="text-danger">{passwordError}</Form.Text>
+                        <Form.Text id="passwordHelpBlock">
                       At least <strong>9 characters</strong>, containing a <strong>letter</strong>{' '}
                       and <strong>a number</strong>
                     </Form.Text>
+                    )} */}
+                    {/* <Form.Text id="passwordHelpBlock">
+                      At least <strong>9 characters</strong>, containing a <strong>letter</strong>{' '}
+                      and <strong>a number</strong>
+                    </Form.Text> */}
                   </Form.Group>
 
                   <Form.Group className="mb-3 position-relative">
@@ -839,6 +855,9 @@ const Page = () => {
               </div>
               <div className="join-our-community-content">
                 <Form>
+                  {error && <Alert variant="danger">{error}</Alert>}
+
+                  {success && <Alert variant="success">{success}</Alert>}
                   <Form.Group className="mb-3 position-relative" controlId="companyName">
                     <Form.Label>Company Name</Form.Label>
                     <Form.Control
@@ -847,6 +866,7 @@ const Page = () => {
                       onChange={(e) => setCompanyName(e.target.value)}
                       placeholder="Enter company name"
                       required
+                      className="common-textfield"
                     />
                   </Form.Group>
 
@@ -858,6 +878,7 @@ const Page = () => {
                       onChange={(e) => setCompanyAddress(e.target.value)}
                       placeholder="Enter company address"
                       required
+                      className="common-textfield"
                     />
                   </Form.Group>
                   <Row>
@@ -926,6 +947,7 @@ const Page = () => {
                       value={companySize}
                       onChange={(e) => setCompanySize(e.target.value)}
                       required
+                      className="common-select"
                     >
                       <option value="">Select company size</option>
                       <option value="1-10">1-10 employees</option>
@@ -941,6 +963,7 @@ const Page = () => {
                       value={industry}
                       onChange={(e) => setIndustry(e.target.value)}
                       required
+                      className="common-select"
                     >
                       <option value="">Select industry</option>
                       <option value="Technology">Technology</option>
@@ -953,18 +976,6 @@ const Page = () => {
                     </Form.Select>
                   </Form.Group>
                 </Form>
-
-                {error && (
-                  <Alert variant="danger" className="mt-3">
-                    {error}
-                  </Alert>
-                )}
-
-                {success && (
-                  <Alert variant="success" className="mt-3">
-                    {success}
-                  </Alert>
-                )}
 
                 <div className="d-grid gap-2">
                   <Button
@@ -1018,7 +1029,7 @@ const Page = () => {
                     variant="primary"
                     size="lg"
                     onClick={handleIndustryExpertiseSubmit}
-                    disabled={activeTags.length < 3}
+                    disabled={activeTags.length < 1}
                   >
                     Complete Registration
                   </Button>

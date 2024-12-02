@@ -734,3 +734,6 @@ fieldset:disabled .btn {
   border-color: var(--primary-color) !important;
   opacity: var(--bs-btn-disabled-opacity) !important;
 }
+.text-danger strong {
+  color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity)) !important;
+}
