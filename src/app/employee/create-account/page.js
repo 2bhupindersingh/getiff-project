@@ -21,6 +21,7 @@ import {
 } from 'firebase/auth';
 import { ref, set, update, get, serverTimestamp } from 'firebase/database';
 import { db } from '../../firebase/config';
+import { Alert } from 'react-bootstrap';
 
 const Page = () => {
   const [email, setEmail] = useState('');
